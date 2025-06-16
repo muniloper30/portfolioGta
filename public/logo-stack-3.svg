@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="544" height="425" viewBox="0 0 544 425">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        font-size: 300px;
+        font-family: Pricedown;
+      }
+
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #fefefe;
+      }
+    </style>
+  </defs>
+  <text id="GARCIA" class="cls-1" transform="translate(68.926 345.315) scale(0.526)">GARCIA</text>
+  <text id="lORENCIO" class="cls-1" transform="translate(-3.157 257.973) scale(0.526)">Lorencio</text>
+  <text id="vICTOR" class="cls-2" transform="translate(144.167 170.105) scale(0.526)">vicTOR</text>
+</svg>
