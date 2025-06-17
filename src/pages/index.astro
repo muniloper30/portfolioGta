@@ -1,19 +1,19 @@
 ---
-import Layout from "@/layouts/Layout.astro"
+import Layout from "@/layouts/Layout.astro";
 
-import HeroKeyLogo from "@/assets/hero-logo.png"
-import HeroKeyBackground from "@/assets/hero-background.png"
-import LogoVI from "@/assets/logo-vl.svg"
+import HeroKeyLogo from "@/assets/hero-logo.png";
+import HeroKeyBackground from "@/assets/hero-background.png";
+import LogoVl from "@/assets/logo-vl.svg";
 
-import LogoCutted from "@/assets/logo-cutted2.svg"
+import LogoCutted from "@/assets/logo-cutted2.svg";
 ---
 
 <Layout>
-  <div id="logo-mask" class="fixed top-0 w-full h-screen">
+  <div id="logo-mask" class="fixed top-0 w-full object-cover h-screen">
     <section>
       <picture
         id="hero-key"
-        class="h-screen scale-105 block overflow-hidden fixed"
+        class="h-screen w-full scale-105 block overflow-hidden fixed"
       >
         <img
           id="hero-key-logo"
@@ -25,6 +25,7 @@ import LogoCutted from "@/assets/logo-cutted2.svg"
           src={HeroKeyBackground.src}
           class="w-full h-full object-cover"
         />
+        
       </picture>
     </section>
   </div>
@@ -33,18 +34,17 @@ import LogoCutted from "@/assets/logo-cutted2.svg"
     class="fixed flex flex-col items-center justify-between h-screen px-20 py-16 w-full"
   >
     <header class="flex justify-between w-full">
-      <LogoVI
-        class="size-20 text-white hover:text-yellow-100 transition-colors duration-500 cursor-pointer"
+      <LogoVl
+        class="size-20 text-white hover:text-yellow-200 transition-colors duration-500 cursor-pointer"
       />
     </header>
 
-
     <footer id="hero-footer" class="absolute bottom-8 m-auto">
       <LogoCutted
-        class="text-white w-70 drop-shadow-[0_0_2px_rgba(255,255,255,.5),0_0_8px_#000]"
+        class="text-white w-70 drop-shadow-[0_0_2px_rgba(255,255,255,.8),0_0_8px_#000]"
       />
       <span
-        class="absolute uppercase tracking-[6px] whitespace-nowrap text-center top-[49px] font-medium text-shadow-[0_0_2px_rgba(255,255,255,.5),0_0_8px_#000] left-1/2 -translate-x-1/2 text-lg"
+        class="absolute uppercase tracking-[6px] whitespace-nowrap text-center top-[49px] font-medium text-shadow-[0_0_2px_rgba(255,255,255,.8),0_0_8px_#000] left-1/2 -translate-x-1/2 text-xl"
       >
         Exporar Portfolio
       </span>
@@ -63,17 +63,18 @@ import LogoCutted from "@/assets/logo-cutted2.svg"
 </style>
 
 <script>
-  import { gsap } from "gsap"
-  import { ScrollTrigger } from "gsap/ScrollTrigger"
+  import { gsap } from "gsap"; // Importamos la librería GSAP para animaciones
+  import { ScrollTrigger } from "gsap/ScrollTrigger"; // Importamos el plugin ScrollTrigger para escuchar eventos de scroll
 
-  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger); // Registramos el plugin ScrollTrigger
 
   const tl = gsap.timeline({
+    // TimeLine para las animaciones
     ease: "power2.out",
     scrollTrigger: {
       scrub: 1,
     },
-  })
+  });
 
   tl.to("#hero-key", { duration: 1, scale: 1 })
     .to("#hero-key-logo", { opacity: 0 }, "<")
@@ -84,7 +85,7 @@ import LogoCutted from "@/assets/logo-cutted2.svg"
       {
         maskSize: "clamp(20vh, 25%, 30vh)",
       },
-      0.15
+      0.01
     )
     .to(
       "#hero-key",
@@ -93,5 +94,5 @@ import LogoCutted from "@/assets/logo-cutted2.svg"
         duration: 0.2,
       },
       0.4
-    )
+    );
 </script>
