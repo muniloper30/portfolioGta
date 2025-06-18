@@ -1,0 +1,210 @@
+---
+import HeroKeyLogo from "@/assets/hero-logo.png";
+import HeroKeyBackground from "@/assets/hero-background.png";
+import DevLogo from "@/assets/dev-logo2.png";
+import LogoCutted from "@/assets/logo-cutted2.svg";
+---
+
+<div id="logo-mask" class="fixed top-0 w-full object-cover h-screen">
+  <section>
+
+    <img
+        id="logo-dev-behind"
+        src={DevLogo.src}
+        class="absolute z-0 opacity-0 blur-[3px] scale-[1.5] mix-blend-screen pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px]"
+        alt="Logo DEV"
+      />
+    <picture
+      id="hero-key"
+      class="h-screen w-full scale-105 block overflow-hidden fixed"
+    >
+      
+
+      <img
+        id="hero-key-logo"
+        src={HeroKeyLogo.src}
+        class="absolute w-full h-full object-cover"
+      />
+      <img
+        id="hero-key-background"
+        src={HeroKeyBackground.src}
+        class="w-full h-full object-cover"
+      />
+    </picture>
+  </section>
+</div>
+
+<div
+  class="fixed flex flex-col items-center justify-center h-screen px-20 py-16 w-full"
+>
+  <footer id="hero-footer" class="absolute bottom-8 m-auto">
+    <LogoCutted
+      class="text-white w-70 drop-shadow-[0_0_2px_rgba(255,255,255,.8),0_0_8px_#000]"
+    />
+    <span
+      class="absolute uppercase tracking-[6px] whitespace-nowrap text-center top-[49px] font-medium text-shadow-[0_0_2px_rgba(255,255,255,.8),0_0_8px_#000] left-1/2 -translate-x-1/2 text-xl"
+    >
+      Explorar Portfolio
+    </span>
+  </footer>
+
+  <div id="info-victor" class="text-center space-y-3 opacity-0 mt-80">
+    <div>
+      <p
+        class="text-2xl md:text-9xl font-bold uppercase bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 bg-clip-text text-transparent tracking-wide"
+      >
+        Desarrollador
+      </p>
+      <p
+        class="text-2xl md:text-9xl font-bold uppercase bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 bg-clip-text text-transparent tracking-wide"
+      >
+        Full <br /> Stack
+      </p>
+    </div>
+    <br />
+    <br />
+    <p class="text-sm md:text-2xl text-white">CONTACTO</p>
+
+    <p class="text-sm md:text-base text-white">+34 617 651 295</p>
+    <p class="text-sm md:text-base text-white">
+      <p class="text-sm md:text-base text-white">victorlorencio@gmail.com</p>
+    </p>
+    <div class="flex justify-center gap-6 pt-2">
+      <!-- GitHub -->
+      <a
+        href="https://github.com/muniloper30"
+        target="_blank"
+        class="hover:scale-110 transition-transform flex items-center gap-2 text-white hover:text-gray-500"
+        aria-label="GitHub"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6 fill-white hover:fill-gray-500 transition-colors"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.438 9.8 8.207 11.387.6.113.793-.26.793-.577v-2.027c-3.338.726-4.033-1.61-4.033-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.747.082-.732.082-.732 1.205.086 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.997.108-.775.42-1.305.763-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.467-2.38 1.236-3.22-.124-.303-.536-1.523.116-3.176 0 0 1.008-.322 3.3 1.23a11.47 11.47 0 0 1 3-.403 11.45 11.45 0 0 1 3 .403c2.29-1.552 3.296-1.23 3.296-1.23.654 1.653.242 2.873.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.92.43.37.823 1.103.823 2.222v3.293c0 .32.192.694.8.576C20.565 22.296 24 17.8 24 12.5 24 5.87 18.63.5 12 .5z"
+          ></path>
+        </svg>
+        Github
+      </a>
+
+      <!-- LinkedIn -->
+      <a
+        href="https://www.linkedin.com/in/victorlorencio/"
+        target="_blank"
+        class="hover:scale-110 transition-transform flex items-center gap-2 text-white hover:text-blue-400"
+        aria-label="LinkedIn"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6 fill-white hover:fill-blue-400 transition-colors"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.52a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM20.45 20.45h-3.54v-5.6c0-1.33-.03-3.03-1.85-3.03-1.85 0-2.13 1.45-2.13 2.93v5.7H9.39V9h3.4v1.56h.05c.47-.9 1.6-1.84 3.29-1.84 3.51 0 4.15 2.31 4.15 5.31v6.42z"
+          ></path>
+        </svg>
+        LinkedIn
+      </a>
+
+      <!-- Instagram -->
+      <a
+        href="https://www.instagram.com/victorlorencio/"
+        target="_blank"
+        class="hover:scale-110 transition-transform flex items-center gap-2 text-white hover:text-pink-400"
+        aria-label="Instagram"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6 fill-white hover:fill-pink-400 transition-colors"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2.2c3.2 0 3.584.012 4.849.07 1.17.055 1.987.24 2.451.403a4.93 4.93 0 011.774 1.148 4.93 4.93 0 011.148 1.774c.163.464.348 1.28.403 2.451.058 1.265.07 1.648.07 4.849s-.012 3.584-.07 4.849c-.055 1.17-.24 1.987-.403 2.451a4.93 4.93 0 01-1.148 1.774 4.93 4.93 0 01-1.774 1.148c-.464.163-1.28.348-2.451.403-1.265.058-1.648.07-4.849.07s-3.584-.012-4.849-.07c-1.17-.055-1.987-.24-2.451-.403a4.93 4.93 0 01-1.774-1.148 4.93 4.93 0 01-1.148-1.774c-.163-.464-.348-1.28-.403-2.451C2.212 15.584 2.2 15.2 2.2 12s.012-3.584.07-4.849c.055-1.17.24-1.987.403-2.451a4.93 4.93 0 011.148-1.774 4.93 4.93 0 011.774-1.148c.464-.163 1.28-.348 2.451-.403C8.416 2.212 8.8 2.2 12 2.2zm0-2.2C8.736 0 8.332.012 7.052.07 5.746.129 4.812.332 4.038.612a7.14 7.14 0 00-2.587 1.683A7.14 7.14 0 00.612 4.038c-.28.774-.483 1.708-.542 3.014C.012 8.332 0 8.736 0 12c0 3.264.012 3.668.07 4.948.059 1.306.262 2.24.542 3.014a7.14 7.14 0 001.683 2.587 7.14 7.14 0 002.587 1.683c.774.28 1.708.483 3.014.542C8.332 23.988 8.736 24 12 24s3.668-.012 4.948-.07c1.306-.059 2.24-.262 3.014-.542a7.14 7.14 0 002.587-1.683 7.14 7.14 0 001.683-2.587c.28-.774.483-1.708.542-3.014.058-1.28.07-1.684.07-4.948 0-3.264-.012-3.668-.07-4.948-.059-1.306-.262-2.24-.542-3.014a7.14 7.14 0 00-1.683-2.587 7.14 7.14 0 00-2.587-1.683c-.774-.28-1.708-.483-3.014-.542C15.668.012 15.264 0 12 0zM12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"
+          ></path>
+        </svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  #logo-mask {
+    background: white;
+    mask-image: url("/prueba-vector.png");
+    mask-position: center 25%;
+    mask-repeat: no-repeat;
+    mask-size: clamp(5000vh, 3500%, 0vh);
+  }
+
+  #info-victor {
+    transform: translateY(10px);
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap"; // Importamos la librería GSAP para animaciones
+  import { ScrollTrigger } from "gsap/ScrollTrigger"; // Importamos el plugin ScrollTrigger para escuchar eventos de scroll
+
+  gsap.registerPlugin(ScrollTrigger); // Registramos el plugin ScrollTrigger
+
+  const tl = gsap.timeline({
+    ease: "power2.out",
+    scrollTrigger: {
+      scrub: 1,
+    },
+  });
+
+  tl.to("#hero-key", { duration: 0.5, scale: 1 })
+
+  // 🔥 Anima el logo DEV: emerge con blur y efecto máscara (clipPath)
+  .fromTo(
+    "#logo-dev-behind",
+    {
+      opacity: 0,
+      scale: 1.5,
+      clipPath: "inset(50% 50% 50% 50%)"
+    },
+    {
+      opacity: 0.3,
+      scale: 1,
+      clipPath: "inset(0% 0% 0% 0%)",
+      duration: 1.2,
+      ease: "power3.out"
+    },
+    0.1 // lo metemos justo tras empezar
+  )
+
+  // Desaparece logo principal y footer
+  .to("#hero-key-logo", { opacity: 0, duration: 0.3 }, "<")
+  .to("#hero-footer", { opacity: 0, duration: 0.3 }, "<")
+
+  // Se encoge la máscara
+  .to(
+    "#logo-mask",
+    {
+      maskSize: "clamp(20vh, 25%, 30vh)",
+    },
+    0.01
+  )
+
+  // Fundido del fondo
+  .to(
+    "#hero-key",
+    {
+      opacity: 0,
+      duration: 0.2,
+    },
+    0.4
+  )
+
+  // Después se muestra info-victor
+  .to("#info-victor", {
+    opacity: 1,
+    y: -10,
+    duration: 0.8,
+  });
+
+</script>
