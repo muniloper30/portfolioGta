@@ -3,35 +3,39 @@ import HeroKeyLogo from "@/assets/hero-logo.png";
 import HeroKeyBackground from "@/assets/hero-background.png";
 import DevLogo from "@/assets/dev-logo2.png";
 import LogoCutted from "@/assets/logo-cutted2.svg";
+
 ---
 
-<div id="logo-mask" class="fixed top-0 w-full object-cover h-screen">
-  <section>
-
+<div id="home">
+  <div
+    class="fixed top-15 left-0 w-full h-screen flex items-center justify-center pointer-events-none"
+  >
     <img
-        id="logo-dev-behind"
-        src={DevLogo.src}
-        class="absolute z-0 opacity-0 blur-[3px] scale-[1.5] mix-blend-screen pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px]"
-        alt="Logo DEV"
-      />
-    <picture
-      id="hero-key"
-      class="h-screen w-full scale-105 block overflow-hidden fixed"
-    >
-      
-
-      <img
-        id="hero-key-logo"
-        src={HeroKeyLogo.src}
-        class="absolute w-full h-full object-cover"
-      />
-      <img
-        id="hero-key-background"
-        src={HeroKeyBackground.src}
-        class="w-full h-full object-cover"
-      />
-    </picture>
-  </section>
+      id="logo-dev-behind"
+      src={DevLogo.src}
+      class="absolute left-1/2 -translate-x-1/2 top-[12%] w-[700px]"
+      alt="Logo DEV"
+    />
+  </div>
+  <div id="logo-mask" class="fixed top-0 w-full object-cover h-screen">
+    <section>
+      <picture
+        id="hero-key"
+        class="h-screen w-full scale-105 block overflow-hidden fixed"
+      >
+        <img
+          id="hero-key-logo"
+          src={HeroKeyLogo.src}
+          class="absolute w-full h-full object-cover"
+        />
+        <img
+          id="hero-key-background"
+          src={HeroKeyBackground.src}
+          class="w-full h-full object-cover"
+        />
+      </picture>
+    </section>
+  </div>
 </div>
 
 <div
@@ -48,7 +52,7 @@ import LogoCutted from "@/assets/logo-cutted2.svg";
     </span>
   </footer>
 
-  <div id="info-victor" class="text-center space-y-3 opacity-0 mt-80">
+  <div id="info-victor" class="text-center space-y-3 opacity-0 mt-120">
     <div>
       <p
         class="text-2xl md:text-9xl font-bold uppercase bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 bg-clip-text text-transparent tracking-wide"
@@ -140,8 +144,17 @@ import LogoCutted from "@/assets/logo-cutted2.svg";
   }
 
   #info-victor {
-    transform: translateY(10px);
-  }
+  mask-image: url("/ellipse-mask.svg");
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: 0% 0%;
+  opacity: 0;
+  filter: blur(20px);
+  transform: scale(1.02);
+  pointer-events: none;
+  will-change: mask-size, opacity, filter;
+}
+
 </style>
 
 <script>
@@ -153,58 +166,70 @@ import LogoCutted from "@/assets/logo-cutted2.svg";
   const tl = gsap.timeline({
     ease: "power2.out",
     scrollTrigger: {
-      scrub: 1,
+      scrub: 2,
     },
   });
 
-  tl.to("#hero-key", { duration: 0.5, scale: 1 })
+  tl.to("#hero-key", { duration: 1, scale: 1 })
+    .to("#hero-key-logo", { opacity: 0 }, "<")
+    .to("#hero-footer", { opacity: 0 }, "<")
+    .to(
+      "#logo-mask",
+      {
+        maskSize: "clamp(30vh, 25%, 30vh)",
+        duration: 1.8,
+      },
+      "< + 2"
+    )
+    .to(
+      "#hero-key",
+      {
+        opacity: 0,
+        duration: 2.5,
+      },
+      0.4
+    )
 
-  // 🔥 Anima el logo DEV: emerge con blur y efecto máscara (clipPath)
   .fromTo(
-    "#logo-dev-behind",
-    {
-      opacity: 0,
-      scale: 1.5,
-      clipPath: "inset(50% 50% 50% 50%)"
-    },
-    {
-      opacity: 0.3,
-      scale: 1,
-      clipPath: "inset(0% 0% 0% 0%)",
-      duration: 1.2,
-      ease: "power3.out"
-    },
-    0.1 // lo metemos justo tras empezar
-  )
-
-  // Desaparece logo principal y footer
-  .to("#hero-key-logo", { opacity: 0, duration: 0.3 }, "<")
-  .to("#hero-footer", { opacity: 0, duration: 0.3 }, "<")
-
-  // Se encoge la máscara
-  .to(
-    "#logo-mask",
-    {
-      maskSize: "clamp(20vh, 25%, 30vh)",
-    },
-    0.01
-  )
-
-  // Fundido del fondo
-  .to(
-    "#hero-key",
-    {
-      opacity: 0,
-      duration: 0.2,
-    },
-    0.4
-  )
-
-  // Después se muestra info-victor
-  .to("#info-victor", {
+  "#info-victor",
+  {
+    opacity: 0,
+    filter: "blur(20px)",
+    scale: 1.02,
+    pointerEvents: "none",
+    maskSize: "100% 0%",              // altura inicial 0%
+    maskPosition: "center bottom",    // empieza desde abajo
+  },
+  {
     opacity: 1,
-    y: -10,
-    duration: 0.8,
-  });
+    filter: "blur(0px)",
+    scale: 1,
+    pointerEvents: "auto",
+    maskSize: "100% 150%",            // crece hacia arriba
+    maskPosition: "center bottom",    // sigue anclado abajo
+    duration: 3,
+    ease: "power3.out",
+  },
+  ">" 
+)
 
+
+
+
+    .fromTo(
+      "#logo-dev-behind",
+      {
+        opacity: 0,
+        scale: 0.5,
+        filter: "blur(10px)",
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        filter: "blur(0px)",
+        duration: 5,
+        ease: "back.out(1.7)",
+      },
+      "<" //
+    );
 </script>
