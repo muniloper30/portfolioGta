@@ -1,11 +1,16 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/sections/Hero.astro"
 import Menu from "@/components/Menu.astro";
+import Hero from "@/sections/Hero.astro"
+import About from "@/sections/About.astro";
+
+
+export const prerender = true;
 ---
 
 <Layout>
   <Menu />
   <Hero />
+  <About />
 </Layout>
  
