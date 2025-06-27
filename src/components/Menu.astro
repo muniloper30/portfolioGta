@@ -10,26 +10,63 @@ import logoMenu from "../assets/logo-menu.png";
   <button
     id="menu-close"
     class="absolute top-18 right-18 z-50 p-2 text-white hover:text-gray-400 cursor-pointer bg-gray-800 hover:bg-gray-700 rounded-full transition-colors duration-300"
-    aria-label="Cerrar menú"
   >
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-5 h-5"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2.5"
+        d="M6 18L18 6M6 6l12 12"></path>
     </svg>
   </button>
 
   <!-- Imagen -->
-  <div id="menu-image" class="w-1/2 flex items-center justify-center bg-gradient-to-br from-teal-900 to-purple-900 transform translate-x-[-20px] opacity-0 transition-all duration-500 delay-100">
-    <img src={logoMenu.src} alt="VL Logo" class="w-80 h-auto drop-shadow-[0_0_100px_rgba(255,255,255,0.9)]" />
+  <div
+    id="menu-image"
+    class="w-1/2 flex items-center justify-center bg-gradient-to-br from-teal-900 to-purple-900
+         transform -translate-x-full opacity-0 transition-all duration-500 delay-100"
+  >
+    <img
+      src={logoMenu.src}
+      alt="VL Logo"
+      class="w-80 h-auto drop-shadow-[0_0_100px_rgba(255,255,255,0.9)]"
+    />
   </div>
 
   <!-- Enlaces -->
-  <div id="menu-content" class="w-1/2 p-10 flex flex-col justify-center space-y-4 transform translate-x-[20px] opacity-0 transition-all duration-500 delay-200">
-    <nav class="text-5xl  space-y-4">
-      <a href="#about" class="block hover:text-yellow-100 active:text-[#FFB0C4]">SOBRE MÍ</a>
-      <a href="#experiencia" class="block hover:text-yellow-100 active:text-[#FFB0C4]">EXPERIENCIA</a>
-      <a href="#educacion" class="block hover:text-yellow-100 active:text-[#FFB0C4]">EDUCACIÓN</a>
-      <a href="#habilidades" class="block hover:text-yellow-100 active:text-[#FFB0C4]">HABILIDADES</a>
-      <a href="#proyectos" class="block hover:text-yellow-100 active:text-[#FFB0C4]">PROYECTOS</a>
+  <div
+    id="menu-content"
+    class="w-1/2 p-10 flex flex-col justify-center space-y-4
+         transform translate-x-full opacity-0 transition-all duration-500 delay-200"
+  >
+    <nav class="text-5xl space-y-4">
+      <a href="#about" class="block hover:text-yellow-100 active:text-[#FFB0C4]"
+        >SOBRE MÍ</a
+      >
+      <a
+        href="#experience"
+        class="block hover:text-yellow-100 active:text-[#FFB0C4]">EXPERIENCIA</a
+      >
+      <a
+        href="#educacion"
+        class="block hover:text-yellow-100 active:text-[#FFB0C4]">EDUCACIÓN</a
+      >
+      <a
+        href="#habilidades"
+        class="block hover:text-yellow-100 active:text-[#FFB0C4]">HABILIDADES</a
+      >
+      <a
+        href="#proyectos"
+        class="block hover:text-yellow-100 active:text-[#FFB0C4]">PROYECTOS</a
+      >
     </nav>
   </div>
 </div>
+
+<script></script>

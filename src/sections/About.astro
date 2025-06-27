@@ -1,41 +1,33 @@
-<section id="about">
+<section id="about" class="h-screen flex items-center justify-center relative">
   <div
-    id="about-me"
-    class="fixed w-full h-screen flex flex-col lg:flex-row items-center justify-center gap-12 px-10 md:px-20 text-start opacity-0"
+    id="about"
+    class="w-full min-h-screen flex flex-col md:flex-row items-center justify-center gap-12 px-10 md:px-20 text-start  opacity-0 -translate-x-24"
   >
     <!-- Texto -->
     <div class="max-w-3xl">
       <h3
-        class="text-5xl font-bold bg-gradient-to-r from-[#ff466b] via-[#ff5e5e] to-[#ff9350] text-transparent bg-clip-text"
+        class="md:text-5xl text-xl font-bold bg-gradient-to-r from-[#ff466b] via-[#ff5e5e] to-[#ff9350] text-transparent bg-clip-text"
       >
-        Sobre mí
+        Hey, soy <span class="text-yellow-200">Víctor Lorencio</span>
       </h3>
 
       <p
-        class="mt-6 text-2xl leading-relaxed bg-gradient-to-r from-[#ff466b] via-[#ff5e5e] to-[#ff9350] text-transparent bg-clip-text"
+        class="mt-6 md:text-2xl text-lg leading-relaxed bg-gradient-to-r from-[#ff466b] via-[#ff5e5e] to-[#ff9350] text-transparent bg-clip-text"
       >
-        Técnico en Electrónica y desarrollador web. Desde 2017 he trabajado como
-        reparador de equipos electrónicos, formando parte del servicio técnico
-        oficial de Nintendo Ibérica/Europa, donde perfeccioné mi capacidad de
-        análisis, diagnóstico y resolución de problemas.
+        +7 años como técnico en electrónica. <span class="text-yellow-200">
+          Desarrollador web Full Stack</span
+        >
+        de Málaga 🇪🇸, aunque donde realmente disfruto es en el frontend. Me encanta
+        crear aplicaciones web con estilo, personalidad y una experiencia visual
+        que marque la diferencia.
         <br /><br />
-        En 2023 decidí dar un giro profesional y me introduje de lleno en el mundo
-        del desarrollo web, combinando formación oficial con aprendizaje autodidacta.
-        Actualmente me desempeño como desarrollador Full Stack, aunque es en el frontend
-        donde realmente disfruto: me apasiona crear interfaces limpias, funcionales
-        y con personalidad.
-        <br /><br />
-        Trabajo con tecnologías como HTML, CSS, JavaScript, y frameworks como React,
-        Angular y Astro, cuidando siempre la estética, la usabilidad y el rendimiento
-        visual de cada proyecto.
-        <br /><br />
-        Además de la programación, soy un apasionado del deporte y un auténtico friki
-        del anime, dos mundos que me inspiran y que también reflejo en mis diseños
-        e ideas creativas.
+        Trabajo con tecnologías como <span class="text-yellow-200">
+          HTML, CSS, JavaScript y frameworks como React, Astro o Angular</span
+        >, combinando formación oficial con aprendizaje autodidacta.
       </p>
 
       <a
-        href="cv_vlorencio.pdf"
+        href="cvVictorLorencio.pdf"
         download="CV_VictorLorencioGarcia.pdf"
         class="mt-6 inline-block"
       >
@@ -48,13 +40,17 @@
     </div>
 
     <!-- Imagen -->
-    <div class="max-w-xs lg:max-w-sm">
-      <img
-        src="/img-about.png"
-        alt="Imagen sobre mí"
-        class="w-full border-4 hover:border-yellow-200  object-cover transition-transform duration-300 ease-out hover:scale-105 hover:shadow-xl"
-      />
-    </div>
+    <div
+  class="absolute right-10 bottom-[60px] w-[150px] md:static md:w-full md:max-w-sm"
+>
+  <div class="border-[1px] border-transparent hover:border-yellow-200 hover:bg-yellow-200 transition-all duration-700 ease-in-out">
+    <img
+      src="/img-about.png"
+      alt="Imagen sobre mí"
+      class="w-full transition-transform duration-700 ease-in-out hover:scale-[0.99] object-cover"
+    />
+  </div>
+</div>
+
   </div>
 </section>
-

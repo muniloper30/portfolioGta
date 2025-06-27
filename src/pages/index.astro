@@ -1,16 +1,17 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Menu from "@/components/Menu.astro";
 import Hero from "@/sections/Hero.astro"
 import About from "@/sections/About.astro";
-
+import Experience from "@/sections/Experience.astro";
 
 export const prerender = true;
 ---
 
 <Layout>
-  <Menu />
   <Hero />
+  <div class="h-[7000px]"></div>
   <About />
+  <Experience />
 </Layout>
  
+

@@ -1,7 +1,8 @@
 ---
-import KeepScrolling from "@/assets/keep-scrolling.svg"
+import KeepScrolling from "@/assets/keep-scrolling.svg";
 import MenuButton from "@/components/MenuButton.astro";
 import HeaderLogo from "@/components/HeaderLogo.astro";
+import Menu from "@/components/Menu.astro";
 ---
 
 <!doctype html>
@@ -10,67 +11,124 @@ import HeaderLogo from "@/components/HeaderLogo.astro";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/logo-vl.svg" />
-    <title>Portfolio Victor Lorencio </title>
+    <title>Portfolio Victor Lorencio</title>
   </head>
   <body>
+    <Menu />
     <HeaderLogo />
     <MenuButton />
-    <slot />
+
+    <div
+      id="background-dynamic"
+      class="fixed inset-0 -z-10 transition-colors duration-1000"
+    >
+    </div>
+
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <slot />
+      </div>
+    </div>
     <KeepScrolling
       class="fixed bottom-3 right-0 left-0 mx-auto text-pink-300 drop-shadow-2xl animate-bounce-pulse"
     />
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const menu = document.getElementById("menu-overlay");
-    const toggleBtn = document.getElementById("menu-toggle");
-    const closeBtn = document.getElementById("menu-close");
-    const image = document.getElementById("menu-image");
-    const content = document.getElementById("menu-content");
+    <script>
+      import { gsap } from "gsap";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-    // Verificamos que todos los elementos existen
-    if (!menu || !toggleBtn || !closeBtn || !image || !content) {
-      console.warn("❌ No se han encontrado uno o más elementos del menú.");
-      return;
-    }
+      gsap.registerPlugin(ScrollTrigger);
 
-    // Abrir el menú
-    toggleBtn.addEventListener("click", () => {
-      menu.classList.remove("opacity-0", "pointer-events-none");
-      menu.classList.add("opacity-100");
+      document.addEventListener("DOMContentLoaded", () => {
+        const menu = document.getElementById("menu-overlay");
+        const toggleBtn = document.getElementById("menu-toggle");
+        const closeBtn = document.getElementById("menu-close");
+        const image = document.getElementById("menu-image");
+        const content = document.getElementById("menu-content");
+        const links =
+          document.querySelectorAll<HTMLAnchorElement>("#menu-content a");
 
-      image.classList.remove("opacity-0", "translate-x-[-20px]");
-      image.classList.add("opacity-100", "translate-x-0");
+        function abrirMenu() {
+          if (menu && image && content) {
+            menu.classList.remove("opacity-0", "pointer-events-none");
+            menu.classList.add("opacity-100");
 
-      content.classList.remove("opacity-0", "translate-x-[20px]");
-      content.classList.add("opacity-100", "translate-x-0");
-    });
+            image.classList.remove("opacity-0", "-translate-x-full");
+            image.classList.add("opacity-100", "translate-x-0");
 
-    // Cerrar el menú
-    closeBtn.addEventListener("click", () => {
-      menu.classList.remove("opacity-100");
-      menu.classList.add("opacity-0", "pointer-events-none");
+            content.classList.remove("opacity-0", "translate-x-full");
+            content.classList.add("opacity-100", "translate-x-0");
+          }
+        }
 
-      image.classList.remove("opacity-100", "translate-x-0");
-      image.classList.add("opacity-0", "translate-x-[-20px]");
+        function cerrarMenu() {
+          if (menu && image && content) {
+            menu.classList.remove("opacity-100");
+            menu.classList.add("opacity-0", "pointer-events-none");
 
-      content.classList.remove("opacity-100", "translate-x-0");
-      content.classList.add("opacity-0", "translate-x-[20px]");
-    });
-  });
-</script>
+            image.classList.remove("opacity-100", "translate-x-0");
+            image.classList.add("opacity-0", "-translate-x-full");
 
+            content.classList.remove("opacity-100", "translate-x-0");
+            content.classList.add("opacity-0", "translate-x-full");
+          }
+        }
 
+        if (toggleBtn) toggleBtn.addEventListener("click", abrirMenu);
+        if (closeBtn) closeBtn.addEventListener("click", cerrarMenu);
 
+        links.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute("href");
+            if (!targetId) return;
 
+            cerrarMenu();
+
+            // Scroll después de cerrar
+            setTimeout(() => {
+              const target = document.querySelector(targetId);
+              if (target) {
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+            }, 400);
+          });
+        });
+        // ANIMACIÓN FONDO DINÁMICO
+        const bgTL = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#smooth-content",
+            start: "top top",
+            end: "bottom bottom",
+            scrub: true,
+          },
+        });
+
+        bgTL
+          .to("#background-dynamic", {
+            background: "linear-gradient(to bottom, #0C131E, #181723)",
+            duration: 1,
+          })
+          .to("#background-dynamic", {
+            background: "linear-gradient(to bottom, #181723, #323953)",
+            duration: 1,
+          })
+          .to("#background-dynamic", {
+            background: "linear-gradient(to bottom, #181723, #4E3755)",
+            duration: 1,
+          })
+          .to("#background-dynamic", {
+            background: "linear-gradient(to bottom, #181723, #323953)",
+            duration: 1,
+          });
+      });
+    </script>
   </body>
 </html>
 
 <style is:global>
   @import "tailwindcss";
   @import "@fortawesome/fontawesome-free/css/all.min.css";
-
-
 
   @theme {
     --font-sans: "GTA", system-ui, sans-serif;
@@ -101,14 +159,18 @@ import HeaderLogo from "@/components/HeaderLogo.astro";
 
   html,
   body {
-    background: linear-gradient(to bottom, #1B1828, #0C101B);
-    height: 900vh;
-    scroll-behavior: smooth;
     overflow-x: hidden;
     overscroll-behavior: none;
     color: white;
     margin: 0;
     width: 100%;
+  }
+
+  #background-dynamic {
+    background: linear-gradient(to bottom, #1b1828, #0c101b);
+    width: 100%;
+    height: 100%;
+    transition: background 0.5s ease-in-out;
   }
 
   @font-face {
@@ -144,13 +206,9 @@ import HeaderLogo from "@/components/HeaderLogo.astro";
   }
 
   @media (min-width: 2300px) {
-  #hero-key-logo {
-    opacity: 0;
-    transition: all 0.6s ease-in-out;
+    #hero-key-logo {
+      opacity: 0;
+      transition: all 0.6s ease-in-out;
+    }
   }
-  
-}
-
-
-
 </style>
