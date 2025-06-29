@@ -1,5 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import Preloader from "@/components/Preloader.astro";
 import Hero from "@/sections/Hero.astro"
 import About from "@/sections/About.astro";
 import Experience from "@/sections/Experience.astro";
@@ -8,8 +9,9 @@ export const prerender = true;
 ---
 
 <Layout>
+<!-- <Preloader /> -->
   <Hero />
-  <div class="h-[7000px]"></div>
+  <div class="h-[12000px]"></div>
   <About />
   <Experience />
 </Layout>

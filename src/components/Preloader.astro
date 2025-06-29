@@ -1,0 +1,64 @@
+---
+// Preloader.astro
+---
+<style>
+  .path-animate {
+    animation: drawLoop 4s ease-in-out infinite;
+  }
+
+  @keyframes drawLoop {
+    0% {
+      stroke-dashoffset: var(--length);
+    }
+    50% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: var(--length);
+    }
+  }
+</style>
+
+<div
+  id="preloader"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-[#0b0b14] to-[#121221] transition-opacity duration-700"
+>
+  <svg
+    width="227"
+    height="132"
+    viewBox="0 0 227 132"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-48 h-auto stroke-white fill-none"
+  >
+    <path d="M26.4874 45.0876L6.73309 4.22697H41.7481L59.9601 43.9604L60.4792 45.0876H67.1233L67.6423 43.9753L85.9433 4.22697H120.973L101.189 45.0876H105.876L127.706 0H83.2293L63.8012 42.2103L44.4621 0H0L21.801 45.0876H26.4874Z" />
+    <path d="M84.9965 78.5314L63.8184 122.299L42.6552 78.5314H37.9687L63.8184 131.999L89.6978 78.5314H84.9965Z" />
+    <path d="M134.945 45.0876V4.12315H171.176V45.0876H175.299V0H130.822V45.0876H134.945Z" />
+    <path d="M173.5 91.5789H222.413V127.421L173.5 127.421V131.5H226.5V87.5001H173.5V91.5789Z" />
+    <path d="M134.5 127.421V78.5082H130.421V131.508H174.421V127.421L134.5 127.421Z" />
+  </svg>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const paths = document.querySelectorAll("#preloader path");
+    const preloader = document.getElementById("preloader") as HTMLDivElement | null;
+
+    if (!preloader || paths.length === 0) return;
+
+    paths.forEach((p) => {
+      const path = p as SVGPathElement;
+      const length = path.getTotalLength();
+
+      path.style.strokeDasharray = `${length}`;
+      path.style.strokeDashoffset = `${length}`;
+      path.style.setProperty("--length", length.toString()); // usamos variable CSS
+      path.classList.add("path-animate");
+    });
+
+    setTimeout(() => {
+      preloader.style.opacity = "0";
+      preloader.style.pointerEvents = "none";
+    }, 3000);
+  });
+</script>

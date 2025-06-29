@@ -267,7 +267,7 @@ tl.to("#hero-key", { duration: 1, scale: 1 })
     duration: 2,
     ease: "power2.out",
   },
-  "> 0.2"
+  "<" 
 )
 
 
@@ -283,8 +283,24 @@ tl.to("#hero-key", { duration: 1, scale: 1 })
     duration: 2,
     ease: "power2.out",
   },
-  "> 0.3"
+  ">" //
+)
+
+.to("#experience-anovo", {
+  opacity: 1,
+  y: 0,
+  duration: 3,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: "#experience-anovo",
+    start: "top 60%",
+    toggleActions: "play none none none",
+  },
+  
+ },
+  ">" //hace 
 );
+
 
 
 

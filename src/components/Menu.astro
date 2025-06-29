@@ -29,13 +29,13 @@ import logoMenu from "../assets/logo-menu.png";
   <!-- Imagen -->
   <div
     id="menu-image"
-    class="w-1/2 flex items-center justify-center bg-gradient-to-br from-teal-900 to-purple-900
+    class="w-1/6 md:w-1/2 flex items-center justify-center bg-gradient-to-br from-teal-900 to-purple-900
          transform -translate-x-full opacity-0 transition-all duration-500 delay-100"
   >
     <img
       src={logoMenu.src}
       alt="VL Logo"
-      class="w-80 h-auto drop-shadow-[0_0_100px_rgba(255,255,255,0.9)]"
+      class="hidden md:block w-80 h-auto drop-shadow-[0_0_100px_rgba(255,255,255,0.9)]"
     />
   </div>
 
@@ -45,9 +45,10 @@ import logoMenu from "../assets/logo-menu.png";
     class="w-1/2 p-10 flex flex-col justify-center space-y-4
          transform translate-x-full opacity-0 transition-all duration-500 delay-200"
   >
-    <nav class="text-5xl space-y-4">
-      <a href="#about" class="block hover:text-yellow-100 active:text-[#FFB0C4]"
-        >SOBRE MÍ</a
+    <nav class="text-3xl md:text-5xl space-y-4">
+      <a
+        href="#about"
+        class="block hover:text-yellow-100 active:text-[#FFB0C4] whitespace-nowrap">SOBRE MÍ</a
       >
       <a
         href="#experience"
