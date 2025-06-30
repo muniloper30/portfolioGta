@@ -5,7 +5,7 @@ import DevLogo from "@/assets/dev-logo2.png";
 import LogoCutted from "@/assets/logo-cutted2.svg";
 ---
 
-<section id="home">
+<section id="hero">
   <div>
     <div
       class="fixed top-15 left-0 w-full h-screen flex items-center justify-center pointer-events-none"
@@ -135,6 +135,9 @@ import LogoCutted from "@/assets/logo-cutted2.svg";
   </div>
 </section>
 
+<!-- Espaciador para evitar superposición con #about -->
+<div class="md:h-[1000vh] h-[1300vh]"></div>
+
 
 <style>
   #logo-mask {
@@ -259,31 +262,48 @@ tl.to("#hero-key", { duration: 1, scale: 1 })
     "<"
   )
 
- .to(
-  "#about",
-  {
-    opacity: 1,
-    x: 0,
-    duration: 2,
-    ease: "power2.out",
-  },
-  "<" 
-)
-
-
-.fromTo(
-  "#experience-inner",
-  {
-    x: 100,
+  .fromTo("#about", 
+    {
+    y: 100,
     opacity: 0,
   },
   {
     x: 0,
-    opacity: 1,
-    duration: 2,
+    opacity:1,
+    duration: 1.5,
     ease: "power2.out",
   },
-  ">" //
+)
+
+  
+  .fromTo("#about", 
+    {
+    y: 100,
+    opacity: 2,
+  },
+  {
+    x: 0,
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out",
+  },
+)
+
+
+.fromTo(
+  "#experience",
+  {
+    y: 100,
+    
+    opacity: 2,
+  },
+  {
+    x: 0,
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out",
+  },
+  "> + 0.5" // esto hace que empiece 0.5 segundos después de que se complete la animación de #about
 )
 
 .to("#experience-anovo", {
@@ -298,7 +318,7 @@ tl.to("#hero-key", { duration: 1, scale: 1 })
   },
   
  },
-  ">" //hace 
+  ">" 
 );
 
 
@@ -311,4 +331,3 @@ tl.to("#hero-key", { duration: 1, scale: 1 })
 
 
 </script>
-
