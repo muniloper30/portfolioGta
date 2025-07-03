@@ -41,7 +41,7 @@ import LogoCutted from "@/assets/logo-cutted2.svg";
   <div
     class="fixed flex flex-col items-center justify-center h-screen px-20 py-16 w-full"
   >
-    <footer id="hero-footer" class="absolute bottom-8 m-auto ">
+    <footer id="hero-footer" class="absolute bottom-8 m-auto">
       <LogoCutted
         class="text-white w-30 md:w-70 drop-shadow-[0_0_2px_rgba(255,255,255,.8),0_0_8px_#000]"
       />
@@ -52,7 +52,10 @@ import LogoCutted from "@/assets/logo-cutted2.svg";
       </span>
     </footer>
 
-    <div id="info-victor" class="text-center space-y-3 opacity-0 md:mt-120 mt-70">
+    <div
+      id="info-victor"
+      class="text-center space-y-3 opacity-0 md:mt-120 mt-70"
+    >
       <div>
         <p
           class="text-2xl md:text-9xl font-bold uppercase bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 bg-clip-text text-transparent tracking-wide"
@@ -136,8 +139,7 @@ import LogoCutted from "@/assets/logo-cutted2.svg";
 </section>
 
 <!-- Espaciador para evitar superposición con #about -->
-<div class="md:h-[1000vh] h-[1300vh]"></div>
-
+<div class="md:h-[200vh] h-[260vh]"></div>
 
 <style>
   #logo-mask {
@@ -163,171 +165,278 @@ import LogoCutted from "@/assets/logo-cutted2.svg";
 
 <script>
   import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/SplitText";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { SplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+  gsap.registerPlugin(ScrollTrigger, SplitText);
 
-// HERO TIMELINE (como ya tenías)
-const tl = gsap.timeline({
-  ease: "power2.out",
-  scrollTrigger: {
-    scrub: 2,
-  },
-});
+  // HERO TIMELINE
+  const tl = gsap.timeline({
+    ease: "power2.out",
+    scrollTrigger: {
+      scrub: 3,
+    },
+  });
 
-tl.to("#hero-key", { duration: 1, scale: 1 })
-  .to("#hero-key-logo", { opacity: 0 }, "<")
-  .to("#hero-footer", { opacity: 0 }, "<")
-  .to(
-    "#logo-mask",
-    { maskSize: "clamp(30vh, 25%, 30vh)", duration: 1.8 },
-    "< + 2"
-  )
-  .to("#hero-key", { opacity: 0, duration: 2.5 }, 0.4)
-  .fromTo(
-    "#info-victor",
-    {
-      opacity: 0,
-      filter: "blur(20px)",
-      scale: 1.02,
-      pointerEvents: "none",
-      maskSize: "100% 0%",
-      maskPosition: "center bottom",
-    },
-    {
-      opacity: 1,
-      filter: "blur(0px)",
-      scale: 1,
-      pointerEvents: "auto",
-      maskSize: "100% 150%",
-      maskPosition: "center bottom",
-      duration: 3,
-      ease: "power3.out",
-    },
-    ">"
-  )
-  .fromTo(
-    "#logo-dev-behind",
-    {
-      opacity: 0,
-      scale: 0.5,
-      filter: "blur(10px)",
-    },
-    {
-      opacity: 1,
-      scale: 1,
-      filter: "blur(0px)",
-      duration: 5,
-      ease: "back.out(1.7)",
-    },
-    "<"
-  )
-  .to(
-    "#logo-dev-behind",
-    {
-      opacity: 0,
-      scale: 0.8,
-      filter: "blur(10px)",
-      duration: 1.5,
-      ease: "power2.inOut",
-    },
-    ">"
-  )
-  
-  .to(
-    "#logo-mask",
-    {
-      opacity: 0,
-      scale: 0.8,
-      filter: "blur(10px)",
-      duration: 1.5,
-      ease: "power2.inOut",
-    },
-    "< + 0.5"
-  )
+  tl.to("#hero-key", { duration: 1, scale: 1 })
+    .to("#hero-key-logo", { opacity: 0 }, "<")
+    .to("#hero-footer", { opacity: 0 }, "<")
+    .to(
+      "#logo-mask",
+      {
+        maskSize: "clamp(20vh, 25%, 30vh)",
+      },
+      0.10
+    )
+    .to(
+      "#hero-key",
+      {
+        opacity: 0,
+        duration: 0.2,
+      },
+      0.6
+    )
+    .fromTo(
+      "#info-victor",
+      {
+        opacity: 0,
+        filter: "blur(20px)",
+        scale: 1.02,
+        pointerEvents: "none",
+        maskSize: "100% 0%",
+        maskPosition: "center bottom",
+      },
+      {
+        opacity: 1,
+        filter: "blur(0px)",
+        scale: 1,
+        pointerEvents: "auto",
+        maskSize: "100% 150%",
+        maskPosition: "center bottom",
+        duration: 1,
+        ease: "power3.out",
+      },
+      ">"
+    )
+    .fromTo(
+      "#logo-dev-behind",
+      {
+        opacity: 0,
+        scale: 0.5,
+        filter: "blur(10px)",
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        filter: "blur(0px)",
+        duration: 1,
+        ease: "back.out(1.2)",
+      },
+      "<"
+    )
+    .to(
+      "#logo-dev-behind",
+      {
+        opacity: 0,
+        scale: 0.5,
+        filter: "blur(10px)",
+        duration: 1,
+        ease: "power2.inOut",
+      },
+      ">"
+    )
 
     .to(
-    "#info-victor",
-    {
-      opacity: 0,
-      filter: "blur(20px)",
-      scale: 1.02,
-      pointerEvents: "none",
-      maskSize: "100% 0%",
-      maskPosition: "center bottom",
-      duration: 1.5,
-      ease: "power3.inOut",
+      "#logo-mask",
+      {
+        opacity: 0,
+        scale: 0.8,
+        filter: "blur(10px)",
+        duration: 0.5,
+        ease: "power2.inOut",
+      },
+      "<"
+    )
+
+    .to(
+      "#info-victor",
+      {
+        opacity: 0,
+        filter: "blur(20px)",
+        scale: 1.02,
+        pointerEvents: "none",
+        maskSize: "100% 0%",
+        maskPosition: "center bottom",
+        duration: 1,
+        ease: "power3.inOut",
+      },
+      "<"
+    )
+
+    // ABOUT SECTION
+    .fromTo(
+      "#about",
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+      },
+      ">"
+    )
+    .to(
+      "#about",
+      {
+        duration: 3,
+        ease: "power2.inOut",
+      },
+      ">"
+    )
+
+    // EXPERIENCE SECTION
+    .fromTo(
+      "#experience",
+      {
+        opacity: 0,
+        scale: 0.2,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 3,
+      },
+      "< +2"
+    )
+    .to(
+      "#experience",
+      {
+        opacity: 0,
+        scale: 0.5,
+        duration: 3,
+        ease: "power2.inOut",
+      },
+      "> +2"
+    )
+
+    // EXPERIENCE ANOVO SECTION
+    .fromTo(
+      "#experience-anovo",
+      {
+        opacity: 0,
+        scale: 0.2,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 2,
+      },
+      "<"
+    )
+    .to(
+      "#experience-anovo",
+      {
+        opacity: 0,
+        scale: 0.5,
+        duration: 3,
+        ease: "power2.inOut",
+      },
+      "> +2"
+    )
+
+    ScrollTrigger.matchMedia({
+
+// 💻 Escritorio primero
+"(min-width: 768px)": function () {
+  const tlEducationDesktop = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#education-section",
+      start: "top center",
+      end: "bottom center",
+      scrub: 1,
     },
-    "<"
-  )
+  });
 
-  .fromTo("#about", 
-    {
-    y: 100,
-    opacity: 0,
-  },
-  {
-    x: 0,
-    opacity:1,
-    duration: 1.5,
+  tlEducationDesktop
+    .from(
+      gsap.utils.toArray("#education-section .shared-anim"),
+      {
+        x: -100,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+      },
+      "<" // << tal como tú lo pides
+    )
+    .from(
+      "#special-card",
+      {
+        x: 100,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+      },
+      "<"
+    );
+},
+
+// 📱 Móvil después
+"(max-width: 767px)": function () {
+  const tlEducationMobile = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#education-section",
+      start: "top center",
+      end: "bottom center",
+      scrub: 1,
+    },
+  });
+
+  tlEducationMobile
+    .from(
+      gsap.utils.toArray("#education-section .shared-anim"),
+      {
+        x: -100,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+      },
+      "< -1"
+    )
+    .from(
+      "#special-card",
+      {
+        x: 100,
+        opacity: 0,
+        duration: 3,
+        ease: "power3.out",
+      },
+      "<"
+    );
+}
+
+});
+
+
+
+  // HOVER effect para tarjetas de educación
+  const cards = gsap.utils.toArray("#education-section .shared-anim, #special-card");
+
+cards.forEach((card) => {
+  const el = card as HTMLElement;
+
+  const hover = gsap.to(el, {
+    scale: 1.03,
+    y: -10,
+    boxShadow: "0px 15px 30px rgba(255, 255, 255, 0.15)",
+    duration: 0.4,
     ease: "power2.out",
-  },
-)
+    paused: true,
+  });
 
-  
-  .fromTo("#about", 
-    {
-    y: 100,
-    opacity: 2,
-  },
-  {
-    x: 0,
-    opacity: 0,
-    duration: 1,
-    ease: "power2.out",
-  },
-)
-
-
-.fromTo(
-  "#experience",
-  {
-    y: 100,
-    
-    opacity: 2,
-  },
-  {
-    x: 0,
-    opacity: 0,
-    duration: 1,
-    ease: "power2.out",
-  },
-  "> + 0.5" // esto hace que empiece 0.5 segundos después de que se complete la animación de #about
-)
-
-.to("#experience-anovo", {
-  opacity: 1,
-  y: 0,
-  duration: 3,
-  ease: "power2.out",
-  scrollTrigger: {
-    trigger: "#experience-anovo",
-    start: "top 60%",
-    toggleActions: "play none none none",
-  },
-  
- },
-  ">" 
-);
-
-
-
-
-
-
-
-
+  el.addEventListener("mouseenter", () => hover.play());
+  el.addEventListener("mouseleave", () => hover.reverse());
+});
 
 
 </script>
