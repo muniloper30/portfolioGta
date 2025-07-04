@@ -161,6 +161,13 @@ import LogoCutted from "@/assets/logo-cutted2.svg";
     pointer-events: none;
     will-change: mask-size, opacity, filter;
   }
+
+  #skills-title-text {
+  background-size: 300% auto;
+  background-position: 0% center;
+}
+
+  
 </style>
 
 <script>
@@ -305,19 +312,19 @@ import LogoCutted from "@/assets/logo-cutted2.svg";
       {
         opacity: 1,
         scale: 1,
-        duration: 3,
+        duration: 1,
       },
-      "< +2"
+      "< +1"
     )
     .to(
       "#experience",
       {
         opacity: 0,
         scale: 0.5,
-        duration: 3,
+        duration: 1,
         ease: "power2.inOut",
       },
-      "> +2"
+      "> +1"
     )
 
     // EXPERIENCE ANOVO SECTION
@@ -347,7 +354,7 @@ import LogoCutted from "@/assets/logo-cutted2.svg";
 
     ScrollTrigger.matchMedia({
 
-// 💻 Escritorio primero
+// Escritorio primero
 "(min-width: 768px)": function () {
   const tlEducationDesktop = gsap.timeline({
     scrollTrigger: {
@@ -367,7 +374,7 @@ import LogoCutted from "@/assets/logo-cutted2.svg";
         duration: 1,
         ease: "power3.out",
       },
-      "<" // << tal como tú lo pides
+      "<" 
     )
     .from(
       "#special-card",
@@ -381,7 +388,7 @@ import LogoCutted from "@/assets/logo-cutted2.svg";
     );
 },
 
-// 📱 Móvil después
+// Móvil después
 "(max-width: 767px)": function () {
   const tlEducationMobile = gsap.timeline({
     scrollTrigger: {
@@ -418,6 +425,20 @@ import LogoCutted from "@/assets/logo-cutted2.svg";
 });
 
 
+gsap.to("#skills-title-text", {
+  scrollTrigger: {
+    trigger: "#skills",
+    start: "top center",
+    end: "bottom center",
+    scrub: 2,
+  },
+  backgroundPosition: "100% 50%",
+  ease: "power2.inOut",
+  duration: 5,
+});
+
+
+
 
   // HOVER effect para tarjetas de educación
   const cards = gsap.utils.toArray("#education-section .shared-anim, #special-card");
@@ -437,6 +458,9 @@ cards.forEach((card) => {
   el.addEventListener("mouseenter", () => hover.play());
   el.addEventListener("mouseleave", () => hover.reverse());
 });
+
+
+
 
 
 </script>
