@@ -1,0 +1,290 @@
+---
+import Modal from "@/components/Modal.astro";
+---
+
+<section id="projects" class="bg-[#1e1c29] text-white py-32 relative">
+  <div class="max-w-7xl mx-auto px-6 space-y-24">
+    <h2
+      class="text-4xl md:text-6xl font-bold text-yellow-200 uppercase tracking-widest text-center md:text-left"
+    >
+      PROYECTOS
+    </h2>
+
+    <div
+      class="project-postal group relative grid md:grid-cols-1 gap-12 items-center"
+    >
+      <div
+        class="relative overflow-hidden shadow-xl bg-white transform transition-transform duration-500 group-hover:rotate-[-1deg] group-hover:-translate-y-3"
+      >
+        <img
+          src="otakusphere.png"
+          alt="Proyecto Otakusphere"
+          class="w-full h-auto object-cover transition-transform duration-500"
+        />
+
+        <div
+          class="absolute left-1/2 top-[75%] transform -translate-x-1/2 -translate-y-1/2 z-10"
+        >
+          <button
+            class="text-sm md:text-lg descubre-btn px-6 py-3 bg-white text-black border rounded-3xl transition-colors duration-500 group-hover:bg-yellow-200 group-hover:text-black cursor-pointer"
+            onclick="window.openProjectModal('Otakusphere', 'otakusphere.png', 'Plataforma web para organizar y seguir tus animes favoritos, con funciones como listas personalizadas, puntuaciones, reseñas y buscador avanzado.', ['html5','javascript', 'react', 'tailwind', 'node', 'postgresql','postman'], 'https://github.com/muniloper30/otakusphere',
+  '')"
+          >
+            Descubre Otakusphere
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Segunda postal - Workout Forge -->
+    <div
+      class="project-postal group relative grid md:grid-cols-1 gap-12 items-center"
+    >
+      <div
+        class="relative overflow-hidden shadow-xl bg-white transform transition-transform duration-500 group-hover:rotate-[-1deg] group-hover:-translate-y-3"
+      >
+        <img
+          src="bg-workout.png"
+          alt="Proyecto Workout Forge"
+          class="w-full h-auto object-cover transition-transform duration-500"
+        />
+
+        <div
+          class="absolute left-1/2 top-[75%] transform -translate-x-1/2 -translate-y-1/2 z-10"
+        >
+          <button
+            class="text-sm md:text-lg descubre-btn px-6 py-3 bg-white text-black border rounded-3xl transition-colors duration-500 group-hover:bg-yellow-200 group-hover:text-black cursor-pointer"
+            onclick="window.openProjectModal('Workout Forge', 'bg-workout.png', 'Aplicación fitness para crear rutinas personalizadas y registrar entrenamientos. Interfaz clara, animaciones suaves y experiencia centrada en el usuario.', ['html5', 'react', 'tailwind', 'javascript', 'node', 'figma', 'supabase' , 'postman'], 'https://github.com/muniloper30/workout-forge', 'https://workout-forge.vercel.app/')"
+          >
+            Descubre Workout Forge
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Postal para el proyecto Makking Of -->
+    <div
+      class="project-postal group relative grid md:grid-cols-1 gap-12 items-center"
+    >
+      <div
+        class="relative overflow-hidden shadow-xl bg-white transform transition-transform duration-500 group-hover:rotate-[-1deg] group-hover:-translate-y-3"
+      >
+        <img
+          src="makkingof.png"
+          alt="Proyecto Makking Of"
+          class="w-full h-auto object-cover transition-transform duration-500"
+        />
+
+        <div
+          class="absolute left-1/2 top-[75%] transform -translate-x-1/2 -translate-y-1/2 z-10"
+        >
+          <button
+            class="text-sm md:text-lg descubre-btn px-6 py-3 bg-white text-black border rounded-3xl transition-colors duration-500 group-hover:bg-yellow-200 group-hover:text-black cursor-pointer"
+            onclick="window.openProjectModal(
+        'Makking Of',
+        'makkingof.png',
+        'Proyecto interno desarrollado durante las prácticas en CodeArts Solutions. Rediseño completo de la plataforma de eventos Makking Of.',
+        ['angular', 'symfony', 'postgresql', 'php', 'docker', 'figma' , 'tailwind' , 'typescript' , 'postman'],
+        '', // Sin enlace GitHub (privado)
+        ''  // Sin demo pública
+      )"
+          >
+            Descubre Makking Of
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Tarjeta para el proyecto API Workout -->
+    <div
+      class="project-postal group relative grid md:grid-cols-1 gap-12 items-center"
+    >
+      <div
+        class="relative overflow-hidden shadow-xl bg-white transform transition-transform duration-500 group-hover:rotate-[-1deg] group-hover:-translate-y-3"
+      >
+        <img
+          src="bg-api.png"
+          alt="API Workout Project"
+          class="w-full h-auto object-cover transition-transform duration-500"
+        />
+
+        <div
+          class="absolute left-1/2 top-[75%] transform -translate-x-1/2 -translate-y-1/2 z-10"
+        >
+          <button
+            class="text-sm md:text-lg descubre-btn px-6 py-3 bg-white text-black border rounded-3xl transition-colors duration-500 group-hover:bg-yellow-200 group-hover:text-black cursor-pointer"
+            onclick="window.openProjectModal(
+          'API Workout',
+          'bg-api.png',
+          'API RESTful en Node.js y Express para alimentar Workout Forge. Incluye autenticación, gestión de usuarios y endpoints seguros para rutinas personalizadas.',
+          ['node', 'javascript','supabase', 'postgresql' , 'postman'],
+          'https://github.com/muniloper30/workouts-fit-api', // Enlace GitHub si es público
+          'https://workouts-fit-api.vercel.app/' // 
+        )"
+          >
+            Descubre API Workout
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal al final -->
+<Modal />
+
+<!-- Script -->
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  // @ts-ignore
+  (window as any).openProjectModal = function (
+    title: string,
+    image: string,
+    description: string,
+    techList: string[],
+    githubUrl: string,
+    demoUrl: string
+  ) {
+    const modal = document.getElementById("project-modal");
+    const titleEl = document.getElementById("modal-title");
+    const descEl = document.getElementById("modal-description");
+    const imageEl = document.getElementById("modal-image");
+    const techContainer = document.getElementById("modal-tech");
+    const linksContainer = document.getElementById("modal-links");
+
+    if (
+      !modal ||
+      !titleEl ||
+      !descEl ||
+      !imageEl ||
+      !techContainer ||
+      !linksContainer
+    )
+      return;
+
+    titleEl.textContent = title;
+    descEl.textContent = description;
+
+    if (imageEl instanceof HTMLImageElement) {
+      imageEl.src = image;
+      imageEl.alt = title;
+    }
+
+    // Render tecnologías
+    techContainer.innerHTML = "";
+    techList.forEach(function (tech) {
+      const li = document.createElement("li");
+      const img = document.createElement("img");
+      img.src = `/icons/${tech}.svg`;
+      img.alt = tech;
+      img.className = "w-8 h-8";
+      li.appendChild(img);
+      techContainer.appendChild(li);
+    });
+
+    // Render botones
+    linksContainer.innerHTML = "";
+
+    const createButton = (label: string, url: string, enabled: boolean) => {
+      const btn = document.createElement("a");
+      btn.textContent = label;
+      btn.href = enabled ? url : "#";
+      btn.target = "_blank";
+      btn.className = `inline-block px-4 py-2 text-sm font-bold rounded-lg transition ${
+        enabled
+          ? "bg-yellow-300 hover:bg-yellow-400 text-black"
+          : "bg-gray-600 text-white cursor-not-allowed pointer-events-none"
+      }`;
+      return btn;
+    };
+
+    linksContainer.appendChild(createButton("GitHub", githubUrl, !!githubUrl));
+    linksContainer.appendChild(createButton("Demo", demoUrl, !!demoUrl));
+
+    // Animaciones de entrada
+    gsap.set("#project-modal", { opacity: 0 });
+    gsap.set(".modal-content", { y: 30, opacity: 0, scale: 0.95 });
+
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+    document.body.classList.add("overflow-hidden");
+
+    gsap.to("#project-modal", {
+      opacity: 1,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+
+    gsap.to(".modal-content", {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.6,
+      ease: "power3.out",
+      delay: 0.1,
+    });
+
+    const bgImage = document.getElementById("modal-bg-image");
+    if (bgImage) {
+      bgImage.style.backgroundImage = `url(${image})`;
+    }
+  };
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const closeBtn = document.getElementById("modal-close");
+    const modal = document.getElementById("project-modal");
+
+    if (!closeBtn || !modal) return;
+
+    closeBtn.addEventListener("click", function () {
+      gsap.to(".modal-content", {
+        opacity: 0,
+        y: 30,
+        scale: 0.95,
+        duration: 0.3,
+        ease: "power2.inOut",
+      });
+
+      gsap.to("#project-modal", {
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.inOut",
+        delay: 0.1,
+        onComplete: () => {
+          modal.classList.remove("flex");
+          modal.classList.add("hidden");
+          document.body.classList.remove("overflow-hidden");
+        },
+      });
+    })
+
+    gsap.utils.toArray(".project-postal").forEach((element: any, i: number) => {
+  gsap.fromTo(
+    element,
+    {
+      opacity: 0,
+      scale: 0.8,
+    },
+    {
+      opacity: 1,
+      scale: 1,
+      duration: 0.8,
+      ease: "power3.out",
+      delay: i * 0.1,
+      scrollTrigger: {
+        trigger: element,
+        toggleActions: "play reverse play reverse",
+      },
+    }
+  );
+});
+
+
+
+
+  });
+
+  
+</script>
