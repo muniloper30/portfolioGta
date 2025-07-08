@@ -1,0 +1,56 @@
+---
+
+---
+
+<!-- MODAL PROYECTOS GTA -->
+<div
+  id="project-modal"
+  class="fixed inset-0 bg-[#2e1e40]/80 backdrop-blur-sm z-50 hidden items-center justify-center px-4"
+>
+  <div
+    id="modal-bg-image"
+    class="absolute inset-0 z-0 bg-cover bg-center opacity-20 blur-lg"
+    style="background-image: url('/otakusphere.png');"
+  >
+  </div>
+
+  <div
+    class="modal-content bg-[#1f1b2e] text-white max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 p-8 relative shadow-2xl z-10"
+  >
+    <!-- Imagen del proyecto -->
+    <img id="modal-image" src="" alt="" class="w-full h-auto object-cover" />
+
+    <!-- Info del proyecto -->
+    <div class="flex flex-col justify-between">
+      <div>
+        <h3 id="modal-title" class="text-3xl font-bold text-yellow-300 mb-4">
+        </h3>
+        <p id="modal-description" class="text-white mb-6"></p>
+        <p class="text-pink-300 font-semibold mb-2">Tecnologías:</p>
+        <ul id="modal-tech" class="flex gap-4 flex-wrap mb-6"></ul>
+        <div id="modal-links" class="flex gap-4 mt-4"></div>
+      </div>
+
+      <!-- Botón cerrar -->
+      <button
+        id="modal-close"
+        class="flex items-center justify-center gap-2 mt-auto self-end px-4 py-2 text-sm text-gray-500 bg-gray-50 hover:bg-gray-300 rounded-3xl transition cursor-pointer"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-arrow-left-icon lucide-arrow-left"
+          ><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg
+        >
+        Atrás
+      </button>
+    </div>
+  </div>
+</div>
