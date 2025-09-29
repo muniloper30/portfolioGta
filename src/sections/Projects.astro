@@ -2,7 +2,7 @@
 import Modal from "@/components/Modal.astro";
 ---
 
-<section id="projects" class=" text-white py-32 relative">
+<section id="projects" class="text-white py-32 relative">
   <div class="max-w-7xl mx-auto px-6 space-y-24">
     <h2
       class="text-4xl md:text-6xl font-bold text-yellow-200 uppercase tracking-widest text-center md:text-left"
@@ -57,6 +57,33 @@ import Modal from "@/components/Modal.astro";
             onclick="window.openProjectModal('Workout Forge', 'bg-workout.png', 'Aplicación fitness para crear rutinas personalizadas y registrar entrenamientos. Interfaz clara, animaciones suaves y experiencia centrada en el usuario.', ['html5', 'react', 'tailwind', 'javascript', 'node', 'figma', 'supabase' , 'postman'], 'https://github.com/muniloper30/workout-forge', 'https://workout-forge.vercel.app/')"
           >
             Descubre Workout Forge
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tercera postal - De Corazón  -->
+    <div
+      class="project-postal group relative grid md:grid-cols-1 gap-12 items-center"
+    >
+      <div
+        class="relative overflow-hidden shadow-xl bg-white transform transition-transform duration-500 group-hover:rotate-[-1deg] group-hover:-translate-y-3"
+      >
+        <img
+          src="decorazon.png"
+          alt="Proyecto De Corazón"
+          class="w-full h-auto object-cover transition-transform duration-500"
+        />
+
+        <div
+          class="absolute left-1/2 top-[75%] transform -translate-x-1/2 -translate-y-1/2 z-10"
+        >
+          <button
+            class="text-sm md:text-lg descubre-btn px-6 py-3 bg-white text-black border rounded-3xl transition-colors duration-500 group-hover:bg-yellow-200 group-hover:text-black cursor-pointer"
+            onclick="window.openProjectModal('Web De’Corazón', 'decorazon.png', 'Aplicación enfocada en mostrar servicios de decoración y eventos. Incluye landing clara que transmite la esencia de la marca, galería visual para montajes y formulario intuitivo para solicitar presupuestos. Diseño con tonos pastel, identidad cálida y estilo delicado pensado para todo tipo de celebraciones. Web en construcción.', 
+['astro', 'tailwind', 'html5', 'typescript', 'figma'], '', '')"
+          >
+            Descubre De Corazón
           </button>
         </div>
       </div>
@@ -258,33 +285,27 @@ import Modal from "@/components/Modal.astro";
           document.body.classList.remove("overflow-hidden");
         },
       });
-    })
+    });
 
     gsap.utils.toArray(".project-postal").forEach((element: any, i: number) => {
-  gsap.fromTo(
-    element,
-    {
-      opacity: 0,
-      scale: 0.8,
-    },
-    {
-      opacity: 1,
-      scale: 1,
-      duration: 0.8,
-      ease: "power3.out",
-      delay: i * 0.1,
-      scrollTrigger: {
-        trigger: element,
-        toggleActions: "play reverse play reverse",
-      },
-    }
-  );
-});
-
-
-
-
+      gsap.fromTo(
+        element,
+        {
+          opacity: 0,
+          scale: 0.8,
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          delay: i * 0.1,
+          scrollTrigger: {
+            trigger: element,
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    });
   });
-
-  
 </script>
