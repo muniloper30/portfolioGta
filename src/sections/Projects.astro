@@ -81,7 +81,7 @@ import Modal from "@/components/Modal.astro";
           <button
             class="text-sm md:text-lg descubre-btn px-6 py-3 bg-white text-black border rounded-3xl transition-colors duration-500 group-hover:bg-yellow-200 group-hover:text-black cursor-pointer"
             onclick="window.openProjectModal('Web De’Corazón', 'decorazon.png', 'Aplicación enfocada en mostrar servicios de decoración y eventos. Incluye landing clara que transmite la esencia de la marca, galería visual para montajes y formulario intuitivo para solicitar presupuestos. Diseño con tonos pastel, identidad cálida y estilo delicado pensado para todo tipo de celebraciones. Web en construcción.', 
-['astro', 'tailwind', 'html5', 'typescript', 'figma'], '', '')"
+['astro', 'tailwind', 'html5', 'typescript', 'figma'], '', 'https://decorazonlaspalmas.es/')"
           >
             Descubre De Corazón
           </button>
@@ -228,7 +228,7 @@ import Modal from "@/components/Modal.astro";
     };
 
     linksContainer.appendChild(createButton("GitHub", githubUrl, !!githubUrl));
-    linksContainer.appendChild(createButton("Demo", demoUrl, !!demoUrl));
+    linksContainer.appendChild(createButton("Web", demoUrl, !!demoUrl));
 
     // Animaciones de entrada
     gsap.set("#project-modal", { opacity: 0 });
